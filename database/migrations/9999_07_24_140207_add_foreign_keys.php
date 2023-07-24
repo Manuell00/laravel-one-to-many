@@ -17,6 +17,15 @@ return new class extends Migration
 
             // Creo la colonna type_id
             $table->unsignedBigInteger('type_id');
+
+            // Assegno la chiave esterna
+            $table->foreign('type_id')
+
+                // Colonna di riferimento dell'altra tabella
+                ->references('id')
+
+                // Nome tabella
+                ->on('types');
         });
     }
 
