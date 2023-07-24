@@ -27,6 +27,21 @@ return new class extends Migration
                 // Nome tabella
                 ->on('types');
         });
+
+        Schema::table('users', function (Blueprint $table) {
+
+            // Creo la colonna type_id
+            $table->unsignedBigInteger('project_id');
+
+            // Assegno la chiave esterna
+            $table->foreign('project_id')
+
+                // Colonna di riferimento dell'altra tabella
+                ->references('id')
+
+                // Nome tabella
+                ->on('projects');
+        });
     }
 
     /**
@@ -36,6 +51,15 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::table('users', function (Blueprint $table) {
+
+            // Inserisco il nome della relazione (si vede su sql)
+            $table->dropForeign('users_project_id_foreign');
+
+            // Elimino la colonna type_id
+            $table->dropColumn('project_id');
+        });
+
         Schema::table('projects', function (Blueprint $table) {
 
             // Inserisco il nome della relazione (si vede su sql)
