@@ -19,4 +19,17 @@ class Project extends Model
         'budget',
         'progress'
     ];
+
+
+    // Inserisco la relazione con User
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    // Inserisco la relazione con Type
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }
