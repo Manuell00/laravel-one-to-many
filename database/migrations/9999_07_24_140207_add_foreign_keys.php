@@ -38,6 +38,9 @@ return new class extends Migration
     {
         Schema::table('projects', function (Blueprint $table) {
 
+            // Inserisco il nome della relazione (si vede su sql)
+            $table->dropForeign('projects_type_id_foreign');
+
             // Elimino la colonna type_id
             $table->dropColumn('type_id');
         });
