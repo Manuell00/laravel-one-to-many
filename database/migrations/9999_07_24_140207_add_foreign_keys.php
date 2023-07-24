@@ -13,7 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('projects', function (Blueprint $table) {
+
+            // Creo la colonna type_id
+            $table->unsignedBigInteger('type_id');
+        });
     }
 
     /**
@@ -23,6 +27,10 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('projects', function (Blueprint $table) {
+
+            // Elimino la colonna type_id
+            $table->dropColumn('type_id');
+        });
     }
 };
