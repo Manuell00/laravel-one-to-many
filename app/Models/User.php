@@ -43,8 +43,8 @@ class User extends Authenticatable
     ];
 
 
-    // Inserisco la relazione con Project
-    public function project()
+    // Inserisco la relazione con Projects (plurale dato dalla relazione)
+    public function projects()
     {
         return $this->hasMany(Project::class);
     }

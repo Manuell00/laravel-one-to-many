@@ -16,7 +16,7 @@ class Type extends Model
     ];
 
     // Inserisco la relazione con project
-    public function project()
+    public function projects()
     {
         return $this->hasMany(Project::class);
     }
