@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
     {
         // Richiamo nel db il file seeder
         $this->call([
-            ProjectTableSeeder::class,
             TypeTableSeeder::class,
+            ProjectTableSeeder::class,
             UserTableSeeder::class
         ]);
     }
