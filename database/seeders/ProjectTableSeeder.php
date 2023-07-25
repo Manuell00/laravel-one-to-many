@@ -21,13 +21,14 @@ class ProjectTableSeeder extends Seeder
     {
         $projects =  Project::factory()->count(10)->make();
 
-        // Ciclo sui record dei progetti
+        // Ciclo sui record dei progetti, classico per i ONE-TO-MANY
         foreach ($projects as $project) {
 
             // Creo una variabile type per recuperare una tipologia randomica tra quelle già presenti nel db
             $type = Type::inRandomOrder()->first();
 
             // Prendo il relativo id e lo salvo nella chiave esterna
+
             $project->type_id = $type->id;
 
             // Salvo

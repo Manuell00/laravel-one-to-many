@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+
+        'project_id'
     ];
 
     /**
@@ -46,6 +48,6 @@ class User extends Authenticatable
     // Inserisco la relazione con Projects (plurale dato dalla relazione)
     public function projects()
     {
-        return $this->hasMany(Project::class);
+        return $this->belongsTo(Project::class);
     }
 }
