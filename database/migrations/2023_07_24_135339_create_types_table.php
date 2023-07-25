@@ -18,7 +18,7 @@ return new class extends Migration
 
             // Inserisco i campi della tabella type
             $table->string('type_name', 64);
-            $table->string('description', 64)->nullable();
+            $table->text('description', 64)->nullable();
 
 
 

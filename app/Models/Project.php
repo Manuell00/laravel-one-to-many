@@ -17,7 +17,9 @@ class Project extends Model
         'end_date',
         'status',
         'budget',
-        'progress'
+        'progress',
+
+        'type_id'
     ];
 
 

@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 
 // Uso il model
 use App\Models\Project;
+use App\Models\Type;
+
 
 class ProjectTableSeeder extends Seeder
 {
@@ -17,6 +19,19 @@ class ProjectTableSeeder extends Seeder
      */
     public function run()
     {
-        Project::factory()->count(100)->create();
+        $projects =  Project::factory()->count(10)->make();
+
+        // Ciclo sui record dei progetti
+        foreach ($projects as $project) {
+
+            // Creo una variabile type per recuperare una tipologia randomica tra quelle già presenti nel db
+            $type = Type::inRandomOrder()->first();
+
+            // Prendo il relativo id e lo salvo nella chiave esterna
+            $project->type_id = $type->id;
+
+            // Salvo
+            $project->save();
+        }
     }
 }

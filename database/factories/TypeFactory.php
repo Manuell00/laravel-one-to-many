@@ -17,7 +17,10 @@ class TypeFactory extends Factory
     public function definition()
     {
         return [
-            'type_name' => fake()->words(3, true),
+            'type_name' => fake()->randomElements([
+                'Artificial_Intelligence', 'Front_End', 'Back_End', 'University', 'Middle_School', 'Python'
+            ], 1),
+
             'description' => fake()->paragraph()
         ];
     }

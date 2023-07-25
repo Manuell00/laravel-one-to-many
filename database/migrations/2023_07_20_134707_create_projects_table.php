@@ -18,7 +18,7 @@ return new class extends Migration
 
             // Inserisco i campi della tabella
             $table->string('project_name', 64);
-            $table->text('description', 255);
+            $table->text('description')->nullable();
             $table->date('start_date');
             $table->date('end_date');
             $table->string('status', 64);
