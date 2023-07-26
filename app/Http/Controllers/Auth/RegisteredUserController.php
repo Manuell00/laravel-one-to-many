@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Ramsey\Uuid\Type\Integer;
 
 class RegisteredUserController extends Controller
 {
@@ -32,14 +33,21 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+
+        // Recupera l'ultimo project_id dalla tabella User (Assumendo che la colonna si chiami 'project_id')
+        $lastProjectId = User::max('project_id');
+
+        // Incrementa di 1 per ottenere il nuovo project_id da assegnare
+        $newProjectId = $lastProjectId + 1;
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'project_id' => $newProjectId
         ]);
 
         event(new Registered($user));
