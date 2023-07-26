@@ -11,12 +11,16 @@ use App\Models\Type;
 
 class LoggedController extends Controller
 {
+
+    // SHOW
     public function show($id)
     {
         $project = Project::findOrFail($id);
         return view('show', compact('project'));
     }
 
+
+    // CREATE
     public function create()
     {
         $types = Type::all();
@@ -35,6 +39,25 @@ class LoggedController extends Controller
         return redirect()->route('project.show', $project->id);
     }
 
+    // EDIT
+    public function edit($id)
+    {
+        $project = Project::findOrFail($id);
+        $types = Type::all();
+
+        return view("edit", compact("project", "types"));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+
+        $project = Project::findOrFail($id);
+        $project->update($data);
+        return redirect()->route('show', $project->id);
+    }
+
+    // DELETE
     public function delete($id)
     {
         $project = Project::findOrFail($id);

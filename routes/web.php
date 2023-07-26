@@ -27,6 +27,18 @@ Route::post('/store', [LoggedController::class, 'store'])
     ->middleware(['auth'])
     ->name("project.store");
 
+
+// Creo la rotta per lo store della edit
+Route::put('/edit/{id}', [LoggedController::class, 'edit'])
+    ->middleware(['auth'])
+    ->name('project.edit');
+
+Route::put('/update/{id}', [LoggedController::class, 'update'])
+    ->middleware(['auth'])
+    ->name('project.update');
+
+
+
 // Creo la rotta per lo store della delete
 Route::delete('/delete/{id}', [LoggedController::class, 'delete'])
     ->middleware(['auth'])
