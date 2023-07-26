@@ -44,6 +44,7 @@
                 <li> <b>Type for this project : </b>
                     <div class="btn btn-secondary">{{ $project ->type->type_name }}</div>
                 </li>
+                <br>
             </ol>
        
 
