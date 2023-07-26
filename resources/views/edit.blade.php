@@ -1,12 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container text-center">
+    <div class="container-fluid text-center bg-light p-4 mb-4">
 
         {{-- Versione UTENTE --}}
         @auth
-            <h1>Benvenuto : {{Auth::user() -> name}}</h1>
-
+        <div>
+            <h1 class="my-3 display-5 font-weight-bold text-primary">Benvenuto : {{Auth::user() -> name}}</h1>
+            <div class="border-top my-3"></div>
+            <h3 class="my-4 display-6 font-weight-bold text-info" style="font-size: 1.5rem;">Effettua qui le modifiche relative al progetto</h3>
+        </div>
          
             {{-- Inserisco il form --}}
 
@@ -23,6 +26,8 @@
                         <input class="text-center form-control" type="text" name="project_name" value="{{$project -> project_name}}">
                     </div>
                 </div>
+
+                
 
                 <div class="row justify-content-center my-4">
                     <div class="col-md-6">
@@ -81,13 +86,10 @@
                     <div class="col-md-6">
                         <label class="my-2" for="type_id"><b>Type :</b></label>
                         <br>
-                        <select name="type_id" id="type_id">
-                         @foreach ($types as $type)
-                            <option  class="text-center form-control" value="{{$type -> id}}">
-                                <div>{{$type-> type_name}}</div>
-                            </option>
-                         @endforeach
-
+                        <select name="type_id" id="type_id" class="form-select text-center">
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}">{{ $type->type_name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
