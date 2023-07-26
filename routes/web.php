@@ -12,10 +12,15 @@ use GuzzleHttp\Middleware;
 Route::get('/', [GuestController::class, 'index'])
     ->name("project.index");
 
-// Inserisco la search
-Route::get('/search', [LoggedController::class, 'search'])
+// Inserisco la search name
+Route::get('/searchName', [LoggedController::class, 'searchName'])
     ->middleware(['auth'])
-    ->name("project.search");
+    ->name("project.searchName");
+
+// Inserisco la search id
+Route::get('/searchId', [LoggedController::class, 'searchId'])
+    ->middleware(['auth'])
+    ->name("project.searchId");
 
 // Inserisco la show se loggato
 Route::get('/show/{id}', [LoggedController::class, 'show'])

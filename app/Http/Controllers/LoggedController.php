@@ -12,16 +12,28 @@ use App\Models\Type;
 class LoggedController extends Controller
 {
 
-    // SEARCH
-    public function search(Request $request)
+    // SEARCH NAME
+    public function searchName(Request $request)
     {
-        $search = $request->input('search');
+        $search = $request->input('searchName');
 
         $projects = Project::where('project_name', 'LIKE', "%$search%")->get();
 
         // dd($projects);
 
-        return view('search', compact('projects'));
+        return view('searchName', compact('projects'));
+    }
+
+    // SEARCH ID
+    public function searchId(Request $request)
+    {
+        $search = $request->input('searchId');
+
+        $projects = Project::where('id', $search)->get();
+
+        // dd($projects);
+
+        return view('searchId', compact('projects'));
     }
 
 
