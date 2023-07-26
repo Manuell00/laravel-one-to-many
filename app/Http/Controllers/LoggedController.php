@@ -28,10 +28,19 @@ class LoggedController extends Controller
     {
         $data = $request->all();
 
-        dd($data);
+        // dd($data);
 
-        // $project = Project::create($data);
+        $project = Project::create($data);
 
-        // return redirect()->route('project.show', $project->id);
+        return redirect()->route('project.show', $project->id);
+    }
+
+    public function delete($id)
+    {
+        $project = Project::findOrFail($id);
+
+        $project->delete();
+
+        return redirect()->route('project.index');
     }
 }

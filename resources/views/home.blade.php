@@ -5,10 +5,10 @@
 
         {{-- Versione UTENTE --}}
         @auth
-            <h1>Benvenuto : {{Auth::user() -> name}}</h1>
+            <h1 class="mb-5">Benvenuto : {{Auth::user() -> name}}</h1>
 
             {{-- Add project --}}
-            <a class="btn btn-primary my-3" href="{{route('project.create')}}">+</a>
+            <h3 style="font-style:oblique">Add a new project : <a class="btn btn-primary my-3" href="{{route('project.create')}}">+</a></h3>
 
             {{-- Creo una lista senza link visibile a tutti --}}
             <ol class="list-unstyled">
@@ -17,8 +17,14 @@
                         <div class="col-2">
                             <a href="{{ route('project.show', $project -> id)}}">{{$project -> project_name}}</a>
                         </div>
+                        
                         <div class="col-1">
-                            <span><a href=""><i class="fa-solid fa-trash"></i></a></span>
+                            <form action="{{ route('project.delete', $project->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+
+                                <button class='btn btn-danger' type="submit"><i class="fa-solid fa-trash"></i></button>
+                            </form>
                         </div>
                     </li>
                     

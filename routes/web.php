@@ -27,6 +27,11 @@ Route::post('/store', [LoggedController::class, 'store'])
     ->middleware(['auth'])
     ->name("project.store");
 
+// Creo la rotta per lo store della delete
+Route::delete('/delete/{id}', [LoggedController::class, 'delete'])
+    ->middleware(['auth'])
+    ->name('project.delete');
+
 
 
 Route::get('/dashboard', function () {
