@@ -80,7 +80,7 @@ class LoggedController extends Controller
 
         $project = Project::findOrFail($id);
         $project->update($data);
-        return redirect()->route('show', $project->id);
+        return redirect()->route('project.show', $project->id);
     }
 
     // DELETE

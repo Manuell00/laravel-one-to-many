@@ -6,14 +6,14 @@
         {{-- Versione UTENTE --}}
         @auth
         <div>
-            <h1 class="my-3 display-5 font-weight-bold text-primary">Benvenuto : {{Auth::user() -> name}}</h1>
+            <h1 class="my-3 display-5 font-weight-bold text-primary">Welcome : {{Auth::user() -> name}}</h1>
             <div class="border-top my-3"></div>
-            <h3 class="my-4 display-6 font-weight-bold text-info" style="font-size: 1.5rem;">Effettua qui le modifiche relative al progetto</h3>
+            <h3 class="my-4 display-6 font-weight-bold text-info" style="font-size: 1.5rem;">Modify your project</h3>
         </div>
          
             {{-- Inserisco il form --}}
 
-            <form class="bg-light p-4 mb-4" action="{{route('project.store')}}" method="POST">
+            <form class="bg-light p-4 mb-4" action="{{route('project.update', $project->id)}}" method="POST">
 
                 
                 @csrf
@@ -29,9 +29,9 @@
 
                 <div class="row justify-content-center my-4">
                     <div class="col-md-6">
-                        <label class="my-2" for="project_name"><b>Image Link :</b></label>
+                        <label class="my-2" for="image"><b>Image Link :</b></label>
                         <br>
-                        <input class="text-center form-control" type="text" name="project_name" value="{{$project -> image}}">
+                        <input class="text-center form-control" type="text" name="image" value="{{$project -> image}}">
                     </div>
                 </div>
 

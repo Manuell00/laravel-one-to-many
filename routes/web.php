@@ -43,7 +43,7 @@ Route::put('/edit/{id}', [LoggedController::class, 'edit'])
     ->middleware(['auth'])
     ->name('project.edit');
 
-Route::put('/update/{id}', [LoggedController::class, 'update'])
+Route::post('/update/{id}', [LoggedController::class, 'update'])
     ->middleware(['auth'])
     ->name('project.update');
 

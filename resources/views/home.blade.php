@@ -46,7 +46,7 @@
                 {{-- SHOW --}}
                 @foreach ($projects as $project)
                     <li class="row justify-content-center my-3">
-                        <div class="col-2">
+                        <div class="col-2 p-name">
                             <a href="{{ route('project.show', $project->id) }}">{{ $project->project_name }}</a>
                         </div>
 
@@ -78,7 +78,7 @@
 
              {{-- Add project --}}
              <h3 class="my-4 display-6 font-weight-bold text-info">Add new project</h3>
-             <a class="btn btn-primary my-3" href="{{ route('project.create') }}">+</a>
+             <a id="add-btn" class="btn btn-primary my-3" href="{{ route('project.create') }}">+</a>
 
         @endauth
 

@@ -28,7 +28,6 @@ class ProjectTableSeeder extends Seeder
             $type = Type::inRandomOrder()->first();
 
             // Prendo il relativo id e lo salvo nella chiave esterna
-
             $project->type_id = $type->id;
 
             // Salvo

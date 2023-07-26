@@ -27,7 +27,7 @@ class Project extends Model
     // Inserisco la relazione con User
     public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
     // Inserisco la relazione con Type

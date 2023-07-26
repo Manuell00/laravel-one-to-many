@@ -23,3 +23,50 @@ h3.my-4 {
         }
     }
 }
+
+/* app.scss */
+
+/* Stile per i link nel testo */
+li{
+    .p-name{
+        transition: all 0.3s ease-in-out;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover{
+            background-color: #f8f9fa;
+            transform: scale(1.1);
+        }
+    }
+    a {
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.2s ease-in-out;
+    
+        &:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    }
+
+    .btn{
+        transition: all 0.3s ease-in-out;
+
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+
+    
+    
+}
+
+#add-btn{
+    transition: all 0.3s ease-in-out;
+
+    &:hover{
+        transform: scale(1.3);
+    }
+}

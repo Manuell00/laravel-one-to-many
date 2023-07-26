@@ -46,10 +46,12 @@ class RegisteredUserController extends Controller
 
         $randomNumber = random_int(0, 100);
 
+        $latestUser = User::latest()->first();
+
 
         // Creo ovviamente un nuovo record nella tabella project che andranno poi modificati nella edit
         $projectData = [
-            'project_name' => 'Nome del Progetto',
+            'project_name' => 'Progetto_' . $request->name . '_' . $latestUser->id,
             'description' => 'Descrizione del Progetto',
             'start_date' => now(),
             'end_date' => now()->addMonths(6),
