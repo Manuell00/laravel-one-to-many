@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid text-center bg-light p-4 mb-4">
+    <div class="container text-center">
 
         {{-- Versione UTENTE --}}
         @auth
@@ -13,7 +13,7 @@
          
             {{-- Inserisco il form --}}
 
-            <form action="{{route('project.store')}}" method="POST">
+            <form class="bg-light p-4 mb-4" action="{{route('project.store')}}" method="POST">
 
                 
                 @csrf

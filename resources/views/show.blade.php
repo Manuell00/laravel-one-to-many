@@ -5,49 +5,88 @@
 
         {{-- Versione UTENTE --}}
         @auth
-        <h1>Benvenuto : {{Auth::user() -> name}}</h1>
+            <div class="my-4">
+                <h1 class="display-5 font-weight-bold text-primary">Benvenuto: {{ Auth::user()->name }}</h1>
+                <div class="border-top my-3"></div>
+                <h3 class="display-6 font-weight-bold text-info" style="font-size: 1.5rem;">Dettagli del Progetto</h3>
 
-            <ol class="list-unstyled">
-                <li> <b>Id :</b>
-                    <div class="btn btn-secondary">{{ $project -> id}}</div>
-                </li>
-                <br>
-                <li> <b>Nome del progetto : </b>
-                    <div class="btn btn-secondary">{{ $project -> project_name}}</div>
-                </li>
-                <br>
-                <li> <b> Descrizione : </b>
-                    <div class="btn btn-secondary">{{ $project -> description}}</div>
-                </li>
-                <br>
-                <li> <b>start_date : </b>
-                    <div class="btn btn-secondary">{{ $project ->start_date }}</div>
-                </li>
-                <br>
-                <li> <b>end_date : </b>
-                    <div class="btn btn-secondary">{{ $project ->end_date }}</div>
-                </li>
-                <br>
-                <li> <b>status : </b>
-                    <div class="btn btn-secondary">{{ $project ->status }}</div>
-                </li>
-                <br>
-                <li> <b>budget : </b>
-                    <div class="btn btn-secondary">{{ $project ->budget }}</div>
-                </li>
-                <br>
-                <li> <b>progress : </b>
-                    <div class="btn btn-secondary">{{ $project ->progress }}</div>
-                </li>
+                <div class="bg-light p-4 rounded shadow-sm mt-4">
+                    <div class="row justify-content-center my-3">
+                        <div class="col-md-3 font-weight-bold">
+                            <span class="label">Id:</span>
+                        </div>
+                        <div class="col-md-6">{{ $project->id }}</div>
+                    </div>
 
-                <br>
-                <li> <b>Type for this project : </b>
-                    <div class="btn btn-secondary">{{ $project ->type->type_name }}</div>
-                </li>
-                <br>
-            </ol>
-       
+                    <div class="row justify-content-center my-3">
+                        <div class="col-md-3 font-weight-bold">
+                            <span class="label">Nome del progetto:</span>
+                        </div>
+                        <div class="col-md-6">{{ $project->project_name }}</div>
+                    </div>
 
+                    <div class="row justify-content-center my-3">
+                        <div class="col-md-3 font-weight-bold">
+                            <span class="label">Descrizione:</span>
+                        </div>
+                        <div class="col-md-6">{{ $project->description }}</div>
+                    </div>
+
+                    <div class="row justify-content-center my-3">
+                        <div class="col-md-3 font-weight-bold">
+                            <span class="label">Start Date:</span>
+                        </div>
+                        <div class="col-md-6">{{ $project->start_date }}</div>
+                    </div>
+
+                    <div class="row justify-content-center my-3">
+                        <div class="col-md-3 font-weight-bold">
+                            <span class="label">End Date:</span>
+                        </div>
+                        <div class="col-md-6">{{ $project->end_date }}</div>
+                    </div>
+
+                    <div class="row justify-content-center my-3">
+                        <div class="col-md-3 font-weight-bold">
+                            <span class="label">Status:</span>
+                        </div>
+                        <div class="col-md-6">{{ $project->status }}</div>
+                    </div>
+
+                    <div class="row justify-content-center my-3">
+                        <div class="col-md-3 font-weight-bold">
+                            <span class="label">Budget:</span>
+                        </div>
+                        <div class="col-md-6">{{ $project->budget }}</div>
+                    </div>
+
+                    <div class="row justify-content-center my-3">
+                        <div class="col-md-3 font-weight-bold">
+                            <span class="label">Progress:</span>
+                        </div>
+                        <div class="col-md-6">{{ $project->progress }}</div>
+                    </div>
+
+                    <div class="row justify-content-center my-3">
+                        <div class="col-md-3 font-weight-bold">
+                            <span class="label">Type for this project:</span>
+                        </div>
+                        <div class="col-md-6">{{ $project->type->type_name }}</div>
+                    </div>
+                </div>
+
+            </div>
         @endauth
     </div>
 @endsection
+
+<style>
+    .label {
+        font-weight: bold;
+    }
+
+    .my-3 {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+</style>
