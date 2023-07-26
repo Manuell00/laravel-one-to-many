@@ -18,6 +18,7 @@ class Project extends Model
         'status',
         'budget',
         'progress',
+        'image',
 
         'type_id'
     ];

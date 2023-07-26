@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('status', 64);
             $table->integer('budget');
             $table->integer('progress');
+            $table->string('image');
+
 
 
             $table->timestamps();

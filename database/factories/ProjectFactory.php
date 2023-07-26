@@ -17,6 +17,9 @@ class ProjectFactory extends Factory
      */
     public function definition()
     {
+        // Genera un numero casuale tra 0 e 100
+        $randomNumber = $this->faker->numberBetween(0, 100);
+
         return [
             'project_name' => implode('_', fake()->words(3)),
             'description' => fake()->paragraph(),
@@ -24,7 +27,8 @@ class ProjectFactory extends Factory
             'end_date' => fake()->dateTimeBetween('now', '+10 year'),
             'status' => fake()->randomElement(['In progress', 'Final_stages', 'Pending']),
             'budget' => fake()->randomFloat(2, 1000, 100000),
-            'progress' => fake()->numberBetween(0, 100)
+            'progress' => fake()->numberBetween(0, 100),
+            'image' => "https://picsum.photos/id/{$randomNumber}//5000/3333"
         ];
     }
 }

@@ -6,9 +6,9 @@
         {{-- Versione UTENTE --}}
         @auth
             <div class="my-4">
-                <h1 class="display-5 font-weight-bold text-primary">Benvenuto: {{ Auth::user()->name }}</h1>
+                <h1 class="display-5 font-weight-bold text-primary">Welcome: {{ Auth::user()->name }}</h1>
                 <div class="border-top my-3"></div>
-                <h3 class="display-6 font-weight-bold text-info">Dettagli del Progetto</h3>
+                <h3 class="display-6 font-weight-bold text-info">Project details</h3>
 
                 <div class="bg-light p-4 rounded shadow-sm mt-4">
                     <div class="row justify-content-center my-3">
@@ -20,9 +20,20 @@
 
                     <div class="row justify-content-center my-3">
                         <div class="col-md-3 font-weight-bold">
-                            <span class="label">Nome del progetto:</span>
+                            <span class="label">Project name:</span>
                         </div>
                         <div class="col-md-6">{{ $project->project_name }}</div>
+                    </div>
+
+                    <div class="row justify-content-center my-3">
+                        <div class="col-md-3 font-weight-bold">
+                            <span class="label">Image:</span>
+                        </div>
+                        <div class="col-md-6" id="photo">
+                            <div class="image-container">
+                                <img src="{{ $project->image }}" alt="ImmagineRand">
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row justify-content-center my-3">

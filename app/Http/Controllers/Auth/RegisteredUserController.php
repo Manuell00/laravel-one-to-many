@@ -44,7 +44,10 @@ class RegisteredUserController extends Controller
         // Incrementa di 1 per ottenere il nuovo project_id da assegnare
         $newProjectId = $lastProjectId + 1;
 
-        // Creo ovviamente un nuovo record nella tabella projectche andranno poi modificati nella edit
+        $randomNumber = random_int(0, 100);
+
+
+        // Creo ovviamente un nuovo record nella tabella project che andranno poi modificati nella edit
         $projectData = [
             'project_name' => 'Nome del Progetto',
             'description' => 'Descrizione del Progetto',
@@ -53,6 +56,7 @@ class RegisteredUserController extends Controller
             'status' => 'In progress',
             'budget' => 0.0, // 
             'progress' => 0, //
+            'image' => "https://picsum.photos/id/{$randomNumber}/",
             'type_id' => rand(1, 10),
         ];
 
