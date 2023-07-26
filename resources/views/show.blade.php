@@ -8,21 +8,42 @@
         <h1>Benvenuto : {{Auth::user() -> name}}</h1>
 
             <ol class="list-unstyled">
-                <li> <b>Id :</b> {{ $project -> id}}</li>
+                <li> <b>Id :</b>
+                    <div class="btn btn-secondary">{{ $project -> id}}</div>
+                </li>
                 <br>
-                <li> <b>Nome del progetto : </b>{{ $project -> project_name}}</li>
+                <li> <b>Nome del progetto : </b>
+                    <div class="btn btn-secondary">{{ $project -> project_name}}</div>
+                </li>
                 <br>
-                <li> <b> Descrizione : </b>{{ $project -> description}}</li>
+                <li> <b> Descrizione : </b>
+                    <div class="btn btn-secondary">{{ $project -> description}}</div>
+                </li>
                 <br>
-                <li> <b>start_date : </b>{{ $project ->start_date }}</li>
+                <li> <b>start_date : </b>
+                    <div class="btn btn-secondary">{{ $project ->start_date }}</div>
+                </li>
                 <br>
-                <li> <b>end_date : </b>{{ $project ->end_date }}</li>
+                <li> <b>end_date : </b>
+                    <div class="btn btn-secondary">{{ $project ->end_date }}</div>
+                </li>
                 <br>
-                <li> <b>status : </b>{{ $project ->status }}</li>
+                <li> <b>status : </b>
+                    <div class="btn btn-secondary">{{ $project ->status }}</div>
+                </li>
                 <br>
-                <li> <b>budget : </b>{{ $project ->budget }}</li>
+                <li> <b>budget : </b>
+                    <div class="btn btn-secondary">{{ $project ->budget }}</div>
+                </li>
                 <br>
-                <li> <b>progress : </b>{{ $project ->progress }}</li>
+                <li> <b>progress : </b>
+                    <div class="btn btn-secondary">{{ $project ->progress }}</div>
+                </li>
+
+                <br>
+                <li> <b>Type for this project : </b>
+                    <div class="btn btn-secondary">{{ $project ->type->type_name }}</div>
+                </li>
             </ol>
        
 

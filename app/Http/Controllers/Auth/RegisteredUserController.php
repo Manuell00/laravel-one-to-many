@@ -37,7 +37,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        // Recupera l'ultimo project_id dalla tabella User (Assumendo che la colonna si chiami 'project_id')
+        // Recupera l'ultimo project_id dalla tabella User (dalla colonna 'project_id')
         $lastProjectId = User::max('project_id');
 
         // Incrementa di 1 per ottenere il nuovo project_id da assegnare
