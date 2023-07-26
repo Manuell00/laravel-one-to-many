@@ -8,7 +8,7 @@
             <div class="my-4">
                 <h1 class="display-5 font-weight-bold text-primary">Benvenuto: {{ Auth::user()->name }}</h1>
                 <div class="border-top my-3"></div>
-                <h3 class="display-6 font-weight-bold text-info" style="font-size: 1.5rem;">Dettagli del Progetto</h3>
+                <h3 class="display-6 font-weight-bold text-info">Dettagli del Progetto</h3>
 
                 <div class="bg-light p-4 rounded shadow-sm mt-4">
                     <div class="row justify-content-center my-3">
@@ -69,7 +69,7 @@
 
                     <div class="row justify-content-center my-3">
                         <div class="col-md-3 font-weight-bold">
-                            <span class="label">Type for this project:</span>
+                            <span class="label">Type of project:</span>
                         </div>
                         <div class="col-md-6">{{ $project->type->type_name }}</div>
                     </div>
@@ -80,13 +80,3 @@
     </div>
 @endsection
 
-<style>
-    .label {
-        font-weight: bold;
-    }
-
-    .my-3 {
-        margin-top: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-</style>
