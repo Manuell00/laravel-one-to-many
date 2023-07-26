@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Project;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -43,6 +44,22 @@ class RegisteredUserController extends Controller
         // Incrementa di 1 per ottenere il nuovo project_id da assegnare
         $newProjectId = $lastProjectId + 1;
 
+        // Creo ovviamente un nuovo record nella tabella projectche andranno poi modificati nella edit
+        $projectData = [
+            'project_name' => 'Nome del Progetto',
+            'description' => 'Descrizione del Progetto',
+            'start_date' => now(),
+            'end_date' => now()->addMonths(6),
+            'status' => 'In progress',
+            'budget' => 0.0, // 
+            'progress' => 0, //
+            'type_id' => rand(1, 10),
+        ];
+
+        // Creazione del nuovo progetto
+        $project = Project::create($projectData);
+
+        // Creazione dello user
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -54,6 +71,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('project.index');
     }
 }
