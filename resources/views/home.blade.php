@@ -9,7 +9,18 @@
             <div class="border-top my-3"></div>
 
             {{-- Container dei progetti --}}
-            <div class="project-container">
+            <div class="project-container row justify-content-center">
+
+                {{-- Search form --}}
+                <form action="{{route('project.search')}}" method="GET" class="my-3 w-50">
+                    @csrf
+                    @method('GET')
+                    
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control" placeholder="Search by project name" aria-label="Search by project name">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
 
                  {{-- List --}}
                 <h3 class="my-4 display-6 font-weight-bold text-info">Project List :</h3>
